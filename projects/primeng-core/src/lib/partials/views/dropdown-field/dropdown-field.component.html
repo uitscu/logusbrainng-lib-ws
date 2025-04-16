@@ -1,0 +1,42 @@
+<ng-container *ngIf="!hideErrorLabel; else notShowError">
+    <div *ngIf="onChangedLoadData.observers.length > 0" [ngClass]="styleClass">
+        <label *ngIf="showLabel" [htmlFor]="identity">{{label}}</label>
+        <div class="flex flex-column gap-3">
+            <p-dropdown #dropdownModel="ngModel" [style]="{ width: '100%' }"
+                [(ngModel)]="selectedItem" [options]="dataSource"
+                [inputId]="identity" [name]="identity"
+                [optionLabel]="optionLabel" [autofocus]="true"
+                autocomplete="off" [placeholder]="placeholder" appendTo="body"
+                [filter]="filter" [showClear]="showClear" [required]="true"
+                [autoDisplayFirst]="autoDisplayFirst" [disabled]="disabled"
+                [readonly]="readonly" [editable]="editable"
+                (onChange)="changedLoadData($event)"
+                (ngModelChange)="changedLoadData($event)"
+                (onClear)="clear($event)" class="w-full">
+            </p-dropdown>
+            <small
+                *ngIf="dropdownModel?.invalid && (dropdownModel.dirty || dropdownModel.touched) && dropdownModel?.errors?.['required']??false"
+                class="ng-dirty ng-invalid">Champ obligatoire.
+            </small>
+        </div>
+    </div>
+</ng-container>
+<ng-template #notShowError>
+    <div *ngIf="onChangedLoadData.observers.length > 0" [ngClass]="styleClass">
+        <label *ngIf="showLabel" [htmlFor]="identity">{{label}}</label>
+        <div class="flex flex-column gap-3">
+            <p-dropdown #dropdownModel="ngModel" [style]="{ width: '100%' }"
+                [(ngModel)]="selectedItem" [options]="dataSource"
+                [inputId]="identity" [name]="identity"
+                [optionLabel]="optionLabel" [autofocus]="true"
+                autocomplete="off" [placeholder]="placeholder" appendTo="body"
+                [filter]="filter" [showClear]="showClear" [required]="true"
+                [autoDisplayFirst]="autoDisplayFirst" [disabled]="disabled"
+                [readonly]="readonly" [editable]="editable"
+                (onChange)="changedLoadData($event)"
+                (ngModelChange)="changedLoadData($event)"
+                (onClear)="clear($event)" class="w-full">
+            </p-dropdown>
+        </div>
+    </div>
+</ng-template>

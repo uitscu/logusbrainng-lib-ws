@@ -1,0 +1,58 @@
+# Node modules
+/node_modules
+/projects/*/node_modules
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+/build
+/projects/*/dist
+/projects/*/out-tsc
+
+# Package lock files
+package-lock.json
+/projects/primeng-core/package-lock.json
+/projects/primeng-utils/package-lock.json
+/projects/*/package-lock.json
+
+# Yarn lock files
+yarn.lock
+/projects/primeng-core/yarn.lock
+/projects/primeng-utils/yarn.lock
+/projects/*/yarn.lock
+
+# IDE and editor folders
+.vscode/
+.idea/
+.project
+.classpath
+*.sublime-workspace
+*.sublime-project
+
+# System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Coverage reports
+/coverage
+
+# Log files
+npm-debug.log
+yarn-error.log
+*.log
+
+# Temporary files
+.sass-cache/
+.typings/
+
+# Environment files
+.env
+.env.*.local
+
+# Miscellaneous
+/.angular/cache
+/libpeerconnection.log
+testem.log

@@ -1,0 +1,28 @@
+<ng-container *ngIf="isLeft;else isRight">
+  <div class="button-container">
+    <button *ngIf="onDone.observers.length > 0 && !isEdit && isPrivilege" pButton pRipple icon="pi pi-save"
+      label="Enregistrer" (click)="onDoneDialog()" [disabled]="disabled"
+      class="p-button-raised p-button-success"></button>
+
+    <button *ngIf="onDone.observers.length > 0 && isEdit && isPrivilege" pButton pRipple icon="pi pi-pencil"
+      label="Modifier" (click)="onDoneDialog()" [disabled]="disabled" class="p-button-raised p-button-success"></button>
+
+    <button *ngIf="onDismiss.observers.length > 0" pButton pRipple icon="pi pi-times" label="Annuler"
+      (click)="onDismissDialog()" class="p-button-raised p-button-danger"></button>
+  </div>
+</ng-container>
+
+<ng-template #isRight>
+  <div class="button-container">
+    <button *ngIf="onDismiss.observers.length > 0" pButton pRipple icon="pi pi-times" label="Annuler"
+      (click)="onDismissDialog()" class="p-button-raised p-button-danger mr-2"></button>
+
+    <button *ngIf="onDone.observers.length > 0 && !isEdit && isPrivilege" pButton pRipple icon="pi pi-save"
+      label="Enregistrer" (click)="onDoneDialog()" [disabled]="disabled"
+      class="p-button-raised p-button-success mr-2"></button>
+
+    <button *ngIf="onDone.observers.length > 0 && isEdit && isPrivilege" pButton pRipple icon="pi pi-pencil"
+      label="Modifier" (click)="onDoneDialog()" [disabled]="disabled"
+      class="p-button-raised p-button-success mr-2"></button>
+  </div>
+</ng-template>
