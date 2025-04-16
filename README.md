@@ -22,7 +22,7 @@ It bundles components, utility services, and standard configurations to accelera
 
 ## 🏗️ Project Structure
 
-```
+```text
 logusbrainng-lib-ws/
 ├── projects/
 │   ├── primeng-core/      # Core UI components (based on PrimeNG)
@@ -32,15 +32,13 @@ logusbrainng-lib-ws/
 ├── package.json
 └── README.md
 ```
+
 ## 🧪 Run Tests
-bash
-Copy
-Edit
+
 ng test primeng-core
 ng test primeng-utils
 
-
-# @logusbrain/primeng-core
+## @logusbrain/primeng-core
 
 **@logusbrain/primeng-core** est une bibliothèque Angular basée sur [PrimeNG](https://www.primefaces.org/primeng/) et développée par **LogusBrain**. Elle vise à fournir des composants réutilisables, cohérents et personnalisés pour les applications d'entreprise.
 
@@ -49,12 +47,16 @@ ng test primeng-utils
 ## 📦 Installation
 
 > *La publication de la bibliothèque sur le registre npm est prévue dans une version future.*
-``` 
+
+```bash
 npm install @logusbrain/primeng-core
 ```
+
 ## 🧰 Usage
+
 Import the library into your Angular module:
- ```
+
+ ```text
 import { PrimengModule } from 'primeng-core';
 
 @NgModule({
@@ -62,7 +64,9 @@ import { PrimengModule } from 'primeng-core';
 })
 export class AppModule {}
 ```
+
 ## 🤝 Contribution
+
 Fork the repository
 
 Create a feature branch (git checkout -b feature/your-feature)
@@ -74,8 +78,10 @@ Push to your branch (git push origin feature/your-feature)
 Open a Pull Request
 
 ## 📄 License
+
 Distributed under the MIT License. See LICENSE for more information.
 
 ## 📬 Contact
-Kastin (uitscu) 
+
+Kastin (uitscu)
 🌐 github.com/uitscu
