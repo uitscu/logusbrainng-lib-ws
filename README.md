@@ -79,6 +79,5 @@ Open a Pull Request
 Distributed under the MIT License. See LICENSE for more information.
 
 ## 📬 Contact
-Kastin (uitscu)
-📧 kasendentambwe0310@gmail.com
+Kastin (uitscu) 
 🌐 github.com/uitscu
