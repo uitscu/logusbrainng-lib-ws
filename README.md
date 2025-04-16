@@ -22,6 +22,7 @@ It bundles components, utility services, and standard configurations to accelera
 
 ## 🏗️ Project Structure
 
+```
 logusbrainng-lib-ws/
 ├── projects/
 │   ├── primeng-core/      # Core UI components (based on PrimeNG)
@@ -30,7 +31,7 @@ logusbrainng-lib-ws/
 ├── .gitignore
 ├── package.json
 └── README.md
-
+```
 ## 🧪 Run Tests
 bash
 Copy
@@ -48,22 +49,19 @@ ng test primeng-utils
 ## 📦 Installation
 
 > *La publication de la bibliothèque sur le registre npm est prévue dans une version future.*
- 
+``` 
 npm install @logusbrain/primeng-core
-
+```
 ## 🧰 Usage
 Import the library into your Angular module:
-
-ts
-Copy
-Edit
-import { PrimengCoreModule } from 'primeng-core';
+ ```
+import { PrimengModule } from 'primeng-core';
 
 @NgModule({
-  imports: [PrimengCoreModule]
+  imports: [PrimengModule]
 })
 export class AppModule {}
-
+```
 ## 🤝 Contribution
 Fork the repository
 
