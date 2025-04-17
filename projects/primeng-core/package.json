@@ -1,6 +1,18 @@
 {
   "name": "@logusbrain/primeng-core",
   "version": "1.0.0",
+  "description": "logusbrainng-lib-ws is a modular and reusable Angular library developed to enhance productivity, consistency, and scalability in Angular applications. It bundles components, utility services, and standard configurations to accelerate development in a professional environment.",
+  "main": "fesm2022/logusbrain-primeng-core.mjs",
+  "types": "index.d.ts",
+  "author": "kastin <kastin.ntambwe@outlook.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uitscu/logusbrainng-lib-ws.git"
+  },
   "peerDependencies": {
     "@angular/common": "^16.2.0",
     "@angular/core": "^16.2.0"

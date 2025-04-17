@@ -49,6 +49,7 @@ yarn-error.log
 .typings/
 
 # Environment files
+.npmrc
 .env
 .env.*.local
 
