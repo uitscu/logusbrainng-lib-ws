@@ -1,27 +1,46 @@
 {
   "name": "@logusbrain/primeng-core",
-  "version": "1.0.0",
-  "description": "logusbrainng-lib-ws is a modular and reusable Angular library developed to enhance productivity, consistency, and scalability in Angular applications. It bundles components, utility services, and standard configurations to accelerate development in a professional environment.",
-  "main": "fesm2022/logusbrain-primeng-core.mjs",
-  "types": "index.d.ts",
-  "author": "kastin <kastin.ntambwe@outlook.com>",
+  "version": "1.0.1",
+  "title": "Fully PrimeNG-Based Angular Library by Logusbrain",
+  "description": "Logusbrain PrimeNG-Core is a modular, reusable Angular library built entirely on PrimeNG to enhance productivity, consistency, and scalability in Angular applications. It bundles components, utility services, and standard configurations to accelerate development in professional environments.",
+  "keywords": [
+    "primeng",
+    "angular",
+    "components",
+    "logusbrain"
+  ],
+  "author": "Logusbrain <kastin.ntambwe@outlook.com>",
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
+  "homepage": "https://github.com/uitscu/logusbrainng-lib-ws",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uitscu/logusbrainng-lib-ws.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "@angular/common": "^16.2.0",
-    "@angular/core": "^16.2.0"
+    "@angular/core": "^16.2.0",
+    "primeng": "^16.0.0",
+    "rxjs": "^7.8.0",
+    "zone.js": "^0.13.0"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.6.0"
   },
-  "sideEffects": false,
   "devDependencies": {
     "@types/crypto-js": "^4.2.2"
-  }
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./fesm2022/logusbrain-primeng-core.mjs",
+      "default": "./fesm2022/logusbrain-primeng-core.mjs"
+    }
+  },
+  "types": "./index.d.ts",
+  "module": "./fesm2022/logusbrain-primeng-core.mjs",
+  "es2022": "./fesm2022/logusbrain-primeng-core.mjs",
+  "sideEffects": false
 }

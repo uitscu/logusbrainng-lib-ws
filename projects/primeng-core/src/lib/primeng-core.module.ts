@@ -284,7 +284,7 @@ import { CipherService } from 'projects/primeng-core/src/lib/security';
     VirtualScrollerModule,
     RxReactiveFormsModule,
     NgxExtendedPdfViewerModule,
-    NgxSpinnerModule, 
+    NgxSpinnerModule,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
@@ -303,5 +303,5 @@ import { CipherService } from 'projects/primeng-core/src/lib/security';
     SharedPreferences,
   ]
 })
-export class PrimengModule {
+export class PrimengCoreModule {
 }
