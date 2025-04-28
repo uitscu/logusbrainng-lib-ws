@@ -45,6 +45,8 @@ Version | Description
 1.0.1   | PrimeNG v16 compatible, first components available.
 ```
 
+npm deprecate @logusbrain/primeng-core@1.0.0 "This version is deprecated. Use version 1.0.1 or higher."
+
 ## 🔹 Key points
 
 Clear update on PrimeNG version (v16) to avoid confusion.
