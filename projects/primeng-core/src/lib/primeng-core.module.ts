@@ -1,5 +1,4 @@
 import { DialogService } from 'primeng/dynamicdialog';
-
 import { DatePipe } from "@angular/common";
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -14,17 +13,6 @@ import { RippleModule } from "primeng/ripple";
 import { SelectButtonModule } from "primeng/selectbutton";
 import { TableModule } from "primeng/table";
 import { TooltipModule } from "primeng/tooltip";
-import { PluralwordPipe, SharedPreferences } from "projects/primeng-core/src/lib/common";
-import {
-  ToolbarComponent,
-  TableComponent,
-  InputvComponent,
-  InputhComponent,
-  DialogButtonComponent,
-  DropdownFieldComponent
-} from "projects/primeng-core/src/lib/partials";
-import { MenuService, ConfigService, BreadcrumbService, LayoutService } from "projects/primeng-core/src/lib/services";
-
 import { AccordionModule } from 'primeng/accordion';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { AvatarModule } from 'primeng/avatar';
@@ -96,26 +84,18 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import { NgxSpinnerModule } from 'ngx-spinner'
 import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators"
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
-import { CipherService } from 'projects/primeng-core/src/lib/security';
+import { LbCommonModule } from '../lib/common';
+import { PartialsModule } from '../lib/partials';
+import { BreadcrumbService, ConfigService, LayoutService, MenuService } from '../lib/services';
+import { CipherService } from '../lib/security';
 
 
 @NgModule({
   declarations: [
-    ToolbarComponent,
-    TableComponent,
-    InputvComponent,
-    InputhComponent,
-    DialogButtonComponent,
-    DropdownFieldComponent,
-    PluralwordPipe,
   ],
   exports: [
-    //Component exports
-    DialogButtonComponent,
-    ToolbarComponent,
-    TableComponent,
-    DropdownFieldComponent,
-    //Module exports
+    //PrimeNG modules
+    //PrimeNG exports
     AccordionModule,
     AutoCompleteModule,
     AvatarModule,
@@ -196,12 +176,17 @@ import { CipherService } from 'projects/primeng-core/src/lib/security';
     TreeModule,
     TreeTableModule,
     VirtualScrollerModule,
+    //Custom Modules
+    //Module exports
+    LbCommonModule,
+    PartialsModule,
     RxReactiveFormsModule,
     NgxExtendedPdfViewerModule,
-    PluralwordPipe,
     NgxSpinnerModule,
   ],
   imports: [
+    //PrimeNG modules
+    //PrimeNG exports
     AccordionModule,
     AutoCompleteModule,
     AvatarModule,
@@ -282,6 +267,10 @@ import { CipherService } from 'projects/primeng-core/src/lib/security';
     TreeModule,
     TreeTableModule,
     VirtualScrollerModule,
+    //Custom Modules
+    //Module exports
+    LbCommonModule,
+    PartialsModule,
     RxReactiveFormsModule,
     NgxExtendedPdfViewerModule,
     NgxSpinnerModule,
@@ -291,7 +280,6 @@ import { CipherService } from 'projects/primeng-core/src/lib/security';
   ],
   providers: [
     DatePipe,
-    PluralwordPipe,
     DialogService,
     MessageService,
     MenuService,
@@ -300,7 +288,6 @@ import { CipherService } from 'projects/primeng-core/src/lib/security';
     BreadcrumbService,
     LayoutService,
     CipherService,
-    SharedPreferences,
   ]
 })
 export class PrimengCoreModule {

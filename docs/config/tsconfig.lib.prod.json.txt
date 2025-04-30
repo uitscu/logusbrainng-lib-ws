@@ -1,19 +1,24 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
- "extends": "../../tsconfig.prod.json",
+  "extends": "../../tsconfig.prod.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
     "declaration": true,
     "declarationMap": false,
+    "emitDecoratorMetadata": true,
     "inlineSources": true,
-    "types": []
+    "types": [],
   },
   "angularCompilerOptions": {
     "compilationMode": "partial"
   },
+  "include": [
+    "src/**/*.ts"
+  ],
   "exclude": [
     "**/*.spec.ts",
     "**/*.test.ts",
-    "**/*.e2e-spec.ts"
+    "**/*.e2e-spec.ts",
+    "**/node_mo/dules/*"
   ]
 }

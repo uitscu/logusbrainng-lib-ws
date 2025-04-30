@@ -10,6 +10,9 @@
     "build": "ng build",
     "build:dev": "ng build --configuration development",
     "build:prod": "ng build --configuration production",
+    "clean:dist": "rimraf dist/ || exit 0",
+    "postbuild:primeng-core": "node scripts/fix-exports.js",
+    "force-clean": "taskkill /F /IM node.exe && npm run clean:dist",
     "build:dev:primeng-core": "ng build primeng-core --configuration development",
     "build:dev:primeng-utils": "ng build primeng-utils --configuration development",
     "build:prod:primeng-core": "ng build primeng-core --configuration production",
@@ -19,6 +22,9 @@
     "watch:primeng-utils": "ng build primeng-utils --watch",
     "build:primeng-core": "ng build primeng-core",
     "build:primeng-utils": "ng build primeng-utils",
+    "prepare:dev:primeng-core": "npm run clean:dist && ng build primeng-core --configuration=development",
+    "prepare:prod:primeng-core": "npm run clean:dist && ng build primeng-core --configuration=production",
+    "publish:primeng-core": "cd dist/primeng-core && npm publish --access public",
     "set:dev:unix": "NODE_ENV=development node scripts/set-tsconfig.js",
     "set:prod:unix": "NODE_ENV=production node scripts/set-tsconfig.js",
     "set:dev": "cross-env NODE_ENV=development node scripts/set-tsconfig.js",
@@ -66,7 +72,9 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "ng-packagr": "^16.2.0",
+    "madge": "^8.0.0",
+    "ng-packagr": "^16.2.3",
+    "rimraf": "^5.0.0",
     "typescript": "~5.1.3"
   }
 }

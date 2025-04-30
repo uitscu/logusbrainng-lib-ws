@@ -2,13 +2,21 @@
 {
   "extends": "../../tsconfig.dev.json",
   "compilerOptions": {
-   "outDir": "../../out-tsc/lib",
+    "outDir": "../../out-tsc/lib",
     "declaration": true,
     "declarationMap": true,
+    "emitDecoratorMetadata": true,
     "inlineSources": true,
     "types": []
   },
+  "include": [
+    "src/**/*.ts"
+  ],
   "exclude": [
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/*.e2e-spec.ts",
+    "**/dist/*",
+    "**/node_modules/*"
   ]
 }

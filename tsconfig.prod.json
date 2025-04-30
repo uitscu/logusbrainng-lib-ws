@@ -2,11 +2,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@logusbrain/primeng-core": ["dist/primeng-core"],
-      "@logusbrain/primeng-core/*": ["dist/primeng-core/*"],
-
-      "@logusbrain/primeng-utils": ["dist/primeng-utils"],
-      "@logusbrain/primeng-utils/*": ["dist/primeng-utils/*"]
+      "@logusbrain/primeng": ["dist/primeng-core"],
+      "@logusbrain/primeng/*": ["dist/primeng-core/*"],
     }
   }
 }

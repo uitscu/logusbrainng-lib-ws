@@ -1,8 +1,7 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+   "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -22,7 +21,15 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@logusbrain/primeng": [
+        "projects/primeng-core/src/public-api.ts"
+      ],
+      "@logusbrain/primeng/*": [
+        "projects/primeng-core/src/lib/*"
+      ],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -31,3 +38,5 @@
     "strictTemplates": true
   }
 }
+// Note: Le répertoire dist est utilisé par Angular CLI pour la compilation. Il peut être ignoré dans le contrôle de version si vous utilisez Angular CLI pour gérer votre projet.
+// Note: Si vous utilisez Angular CLI, il est recommandé de laisser le fichier tsconfig.json tel quel et de ne pas le modifier.

@@ -3,10 +3,11 @@
 **logusbrainng-lib-ws** is a modular and reusable Angular library developed to enhance productivity, consistency, and scalability in Angular applications.  
 It bundles components, utility services, and standard configurations to accelerate development in a professional environment.
 
-![GitHub repo size](https://img.shields.io/github/repo-size/uitscu/logusbrainng-lib-ws)
-![GitHub issues](https://img.shields.io/github/issues/uitscu/logusbrainng-lib-ws)
-![GitHub stars](https://img.shields.io/github/stars/uitscu/logusbrainng-lib-ws)
-![GitHub license](https://img.shields.io/github/license/uitscu/logusbrainng-lib-ws)
+[![GitHub repo size](https://img.shields.io/github/repo-size/uitscu/logusbrainng-lib-ws)](https://github.com/uitscu/logusbrainng-lib-ws)
+[![GitHub issues](https://img.shields.io/github/issues/uitscu/logusbrainng-lib-ws)](https://github.com/uitscu/logusbrainng-lib-ws/issues)
+[![GitHub stars](https://img.shields.io/github/stars/uitscu/logusbrainng-lib-ws)](https://github.com/uitscu/logusbrainng-lib-ws/stargazers)
+[![GitHub license](https://img.shields.io/github/license/uitscu/logusbrainng-lib-ws)](https://github.com/uitscu/logusbrainng-lib-ws/blob/main/LICENSE)
+
 
 ---
 

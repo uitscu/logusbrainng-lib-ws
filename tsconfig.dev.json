@@ -2,11 +2,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@logusbrain/primeng-core": ["projects/primeng-core/src/public-api.ts"],
-      "@logusbrain/primeng-core/*": ["projects/primeng-core/src/lib/*"],
-
-      "@logusbrain/primeng-utils": ["projects/primeng-utils/src/public-api.ts"],
-      "@logusbrain/primeng-utils/*": ["projects/primeng-utils/src/lib/*"]
+      "@logusbrain/primeng": ["projects/primeng-core/src/public-api.ts"],
+      "@logusbrain/primeng/*": ["projects/primeng-core/src/lib/*"],
     }
   }
 }

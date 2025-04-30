@@ -42,10 +42,10 @@ The full documentation for components and their APIs is available in the docs/ f
  ```text
 Version | Description
 -------------------------------------------------------------
-1.0.1   | PrimeNG v16 compatible, first components available.
+1.0.3   | PrimeNG v16 compatible, first components available.
 ```
 
-npm deprecate @logusbrain/primeng-core@1.0.0 "This version is deprecated. Use version 1.0.1 or higher."
+npm deprecate @logusbrain/primeng-core@1.0.2 "This version is deprecated. Use version 1.0.3 or higher."
 
 ## 🔹 Key points
 
@@ -54,3 +54,13 @@ Clear update on PrimeNG version (v16) to avoid confusion.
 Well-defined structure for easy installation, usage, and contribution.
 
 Prerequisites and Versions sections for clarity.
+
+## 🛠 Key Features
+
+* 📁 Customized partial components
+
+* 🔒 Integrated security services
+
+* 🔧 Common utility services
+
+* 📦 Modular architecture
