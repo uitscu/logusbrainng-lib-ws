@@ -24,7 +24,7 @@
     "build:primeng-utils": "ng build primeng-utils",
     "prepare:dev:primeng-core": "npm run clean:dist && ng build primeng-core --configuration=development",
     "prepare:prod:primeng-core": "npm run clean:dist && ng build primeng-core --configuration=production",
-    "publish:primeng-core": "cd dist/primeng-core && npm publish --access public",
+    "publish:primeng-core": "npm run clean:dist && ng build primeng-core --configuration=production && cd dist/primeng-core && npm publish --access public",
     "set:dev:unix": "NODE_ENV=development node scripts/set-tsconfig.js",
     "set:prod:unix": "NODE_ENV=production node scripts/set-tsconfig.js",
     "set:dev": "cross-env NODE_ENV=development node scripts/set-tsconfig.js",

@@ -2,7 +2,8 @@ import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChil
 import { MenuItem, ConfirmationService } from 'primeng/api';
 import { Table } from 'primeng/table';
 import { TableColumn } from '../../models/table-column';
-import { PluralwordPipe, Status } from 'projects/primeng-core/src/lib/common';
+import { PluralwordPipe } from '../../../common/pipes';
+import { Status } from '../../../common/enums/status';
 
 @Component({
   selector: 'llb-table',

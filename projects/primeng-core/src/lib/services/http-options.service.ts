@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
-import { API_ENDPOINT, CLIENT_ID, CLIENT_KEY } from 'projects/primeng-core/src/lib/common/utils';
+import { API_ENDPOINT, CLIENT_ID, CLIENT_KEY } from '../common/utils/constants.utility';
 
 @Injectable({
   providedIn: 'root'

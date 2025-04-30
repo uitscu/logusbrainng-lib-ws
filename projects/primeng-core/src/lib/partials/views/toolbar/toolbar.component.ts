@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { style } from '@angular/animations';
 
 @Component({
   selector: 'llb-toolbar',

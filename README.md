@@ -1,6 +1,6 @@
-# 🧠 logusbrainng-lib-ws
+# 🧠 logusbrainng-lib
 
-**logusbrainng-lib-ws** is a modular and reusable Angular library developed to enhance productivity, consistency, and scalability in Angular applications.  
+**logusbrainng-lib** is a modular and reusable Angular library developed to enhance productivity, consistency, and scalability in Angular applications.  
 It bundles components, utility services, and standard configurations to accelerate development in a professional environment.
 
 [![GitHub repo size](https://img.shields.io/github/repo-size/uitscu/logusbrainng-lib-ws)](https://github.com/uitscu/logusbrainng-lib-ws)
@@ -27,7 +27,7 @@ It bundles components, utility services, and standard configurations to accelera
 logusbrainng-lib-ws/
 ├── projects/
 │   ├── primeng-core/      # Core UI components (based on PrimeNG)
-│   └── primeng-utils/     # Shared utility functions
+│   └── utils/     # Shared utility functions
 ├── angular.json
 ├── .gitignore
 ├── package.json
@@ -37,17 +37,21 @@ logusbrainng-lib-ws/
 ## 🧪 Run Tests
 
 ng test primeng-core
-ng test primeng-utils
+ng test utils
 
 ## 🧰 Usage
 
 Import the library into your Angular module:
 
  ```text
-import { PrimengModule } from 'primeng-core';
+import { PrimengCoreModule } from '@logusbrain/primeng-core';
+import { UtilsModule } from '@logusbrain/utils';
 
 @NgModule({
-  imports: [PrimengModule]
+  imports: [
+    PrimengCoreModule,
+    UtilsModule
+  ]
 })
 export class AppModule {}
 ```

@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
+import { CLIENT_ID, CLIENT_KEY, LOGUSBRAIN_ID, LOGUSBRAIN_KEY } from '../common/utils/constants.utility';
 import * as CryptoJS from 'crypto-js';
-import { LOGUSBRAIN_ID, LOGUSBRAIN_KEY, CLIENT_ID, CLIENT_KEY } from 'projects/primeng-core/src/lib/common';
 
 
 @Injectable()

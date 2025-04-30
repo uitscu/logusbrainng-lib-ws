@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CipherConfig } from 'projects/primeng-core/src/lib/partials/models';
+import { CipherConfig } from '../partials/models';
 
 @Injectable({
   providedIn: 'root'

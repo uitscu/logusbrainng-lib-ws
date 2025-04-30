@@ -1,5 +1,5 @@
 {
-  "name": "@logusbrain/primeng-utils",
+  "name": "@logusbrain/utils",
   "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^16.2.0",

@@ -1,6 +1,6 @@
 import { FormGroup, FormControl, AbstractControl, ValidationErrors, ValidatorFn, FormArray } from "@angular/forms"
 import { PatternValidators } from "./pattern.validators";
-import { RegexConstants } from "projects/primeng-core/src/lib/common/utils";
+import { RegexConstants } from "../utils";
 
 export function inputParamKey(text: any): boolean {
   const pat = PatternValidators.pattern(text, RegexConstants.INPUT_KEY);
