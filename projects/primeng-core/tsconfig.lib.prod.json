@@ -1,6 +1,6 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
- "extends": "../../tsconfig.prod.json",
+  "extends": "../../tsconfig.prod.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
     "declaration": true,
@@ -12,8 +12,6 @@
     "compilationMode": "partial"
   },
   "exclude": [
-    "**/*.spec.ts",
-    "**/*.test.ts",
-    "**/*.e2e-spec.ts"
+    "**/*.spec.ts"
   ]
 }

@@ -84,16 +84,40 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import { NgxSpinnerModule } from 'ngx-spinner'
 import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators"
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
-import { LbCommonModule } from '../lib/common';
-import { PartialsModule } from '../lib/partials';
 import { BreadcrumbService, ConfigService, LayoutService, MenuService } from '../lib/services';
 import { CipherService } from '../lib/security';
+import { CurrencySpacePipe, LowercasePipe, PluralwordPipe } from '../lib/common/pipes';
+import { DialogButtonComponent, DropdownFieldComponent, InputhComponent, InputvComponent, TableComponent, ToolbarComponent } from '../lib/partials/views';
+import { SharedPreferences } from '../lib/common/shared';
+
 
 
 @NgModule({
   declarations: [
+    // Directives declarations
+    PluralwordPipe,
+    CurrencySpacePipe,
+    LowercasePipe,
+    //Component declarations
+    ToolbarComponent,
+    TableComponent,
+    InputvComponent,
+    InputhComponent,
+    DialogButtonComponent,
+    DropdownFieldComponent,
   ],
   exports: [
+    // Directives exports
+    PluralwordPipe,
+    CurrencySpacePipe,
+    LowercasePipe,
+    //Component exports
+    ToolbarComponent,
+    TableComponent,
+    InputvComponent,
+    InputhComponent,
+    DialogButtonComponent,
+    DropdownFieldComponent,
     //PrimeNG modules
     //PrimeNG exports
     AccordionModule,
@@ -178,8 +202,6 @@ import { CipherService } from '../lib/security';
     VirtualScrollerModule,
     //Custom Modules
     //Module exports
-    LbCommonModule,
-    PartialsModule,
     RxReactiveFormsModule,
     NgxExtendedPdfViewerModule,
     NgxSpinnerModule,
@@ -269,8 +291,6 @@ import { CipherService } from '../lib/security';
     VirtualScrollerModule,
     //Custom Modules
     //Module exports
-    LbCommonModule,
-    PartialsModule,
     RxReactiveFormsModule,
     NgxExtendedPdfViewerModule,
     NgxSpinnerModule,
@@ -279,6 +299,10 @@ import { CipherService } from '../lib/security';
     CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [
+    PluralwordPipe,
+    CurrencySpacePipe,
+    LowercasePipe,
+    SharedPreferences,
     DatePipe,
     DialogService,
     MessageService,

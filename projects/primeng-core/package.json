@@ -45,9 +45,8 @@
     "tslib": "^2.6.0"
   },
   "devDependencies": {
-    "@types/crypto-js": "^4.2.2",
-    "ng-packagr": "^16.2.3"
-  }, 
+    "@types/crypto-js": "^4.2.2"
+  },
   "types": "./index.d.ts",
   "module": "./fesm2022/logusbrain-primeng-core.mjs",
   "main": "./fesm2022/logusbrain-primeng-core.mjs",
