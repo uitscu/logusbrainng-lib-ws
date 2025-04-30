@@ -8,7 +8,6 @@ It bundles components, utility services, and standard configurations to accelera
 [![GitHub stars](https://img.shields.io/github/stars/uitscu/logusbrainng-lib-ws)](https://github.com/uitscu/logusbrainng-lib-ws/stargazers)
 [![GitHub license](https://img.shields.io/github/license/uitscu/logusbrainng-lib-ws)](https://github.com/uitscu/logusbrainng-lib-ws/blob/main/LICENSE)
 
-
 ---
 
 ## 🚀 Features

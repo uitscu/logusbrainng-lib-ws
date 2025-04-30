@@ -7,6 +7,9 @@
 Before installing, ensure your project is using Angular and PrimeNG v16.
 
 ```bash
+# If you encounter peer dependency issues:
+npm install @logusbrain/primeng-core --legacy-peer-deps
+# Else
 npm install @logusbrain/primeng-core
 ```
 
@@ -20,12 +23,22 @@ PrimeNG: Version 16 (required for compatibility)
 
 Once installed, you can import the @logusbrain/primeng-core modules into your Angular module to start using the components:
 
- ```text
+ ```bash
 import { PrimengCoreModule } from '@logusbrain/primeng-core';
 
-@NgModule({
+@NgModule({  
+  // Imports other modules required for this module to function
   imports: [
-    PrimengCoreModule
+    PrimengCoreModule, // Custom module that bundles PrimeNG components used in the app
+  ],
+
+  providers: [
+    // Required: Injection tokens necessary for configuring the app per environment
+    { provide: API_ENDPOINT, useValue: <environment.apiUrl> }, // Base URL of the backend API
+    { provide: CLIENT_ID, useValue: <environment.clientId> }, // OAuth client ID
+    { provide: CLIENT_KEY, useValue: <environment.clientKey> }, // OAuth client secret or key
+    { provide: LOGUSBRAIN_ID, useValue: <environment.lbId> }, // ID for external service LogusBrain
+    { provide: LOGUSBRAIN_KEY, useValue: <environment.lbKey> }, // Key for LogusBrain service
   ],
 })
 export class AppModule { }
