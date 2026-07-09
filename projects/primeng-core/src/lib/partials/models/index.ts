@@ -5,4 +5,4 @@ export * from './lib-cipher-config';
 export * from './menuchangeevent';
 export * from './result';
 export * from './table-column';
-export * from './uplaod';
+export * from './upload';

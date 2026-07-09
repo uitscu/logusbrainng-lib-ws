@@ -1,7 +1,8 @@
 // === Angular Core & Common ===
-import { DatePipe } from "@angular/common";
+import { CommonModule, DatePipe } from "@angular/common";
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
 
 // === RxWeb & Autres Bibliothèques externes ===
 import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
@@ -10,11 +11,11 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
 // === Services internes ===
-import { BreadcrumbService, ConfigService, LayoutService, MenuService } from '../lib/services';
-import { CipherService } from '../lib/security';
+import { BreadcrumbService, ConfigService, LayoutService, MenuService } from './services';
+import { CipherService } from './security';
 
 // === Pipes personnalisés ===
-import { CurrencySpacePipe, LowercasePipe, PluralwordPipe } from '../lib/common/pipes';
+import { CurrencySpacePipe, LowercasePipe, PluralwordPipe } from './common/pipes';
 
 // === Composants personnalisés ===
 import {
@@ -24,10 +25,10 @@ import {
   InputvComponent,
   TableComponent,
   ToolbarComponent
-} from '../lib/partials/views';
+} from './partials/views';
 
 // === Autres éléments internes ===
-import { SharedPreferences } from '../lib/common/shared';
+import { SharedPreferences } from './common/shared';
 
 // === PrimeNG - Services ===
 import { ConfirmationService, MessageService } from "primeng/api";
@@ -129,17 +130,6 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     ToolbarComponent,
   ],
   imports: [
-    // === Pipes et composants personnalisés ===
-    CurrencySpacePipe,
-    DialogButtonComponent,
-    DropdownFieldComponent,
-    InputhComponent,
-    InputvComponent,
-    LowercasePipe,
-    PluralwordPipe,
-    TableComponent,
-    ToolbarComponent,
-
     // === Modules PrimeNG ===
     AccordionModule,
     AutoCompleteModule,
@@ -221,10 +211,12 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     VirtualScrollerModule,
 
     // === Autres modules (externes ou Angular) ===
+    CommonModule,
     FormsModule,
     NgxExtendedPdfViewerModule,
     NgxSpinnerModule,
     ReactiveFormsModule,
+    RouterModule,
     RxReactiveFormsModule,
   ],
   exports: [
@@ -320,10 +312,12 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     VirtualScrollerModule,
 
     // === Autres modules (externes ou Angular) ===
+    CommonModule,
     FormsModule,
     NgxExtendedPdfViewerModule,
     NgxSpinnerModule,
     ReactiveFormsModule,
+    RouterModule,
     RxReactiveFormsModule,
   ],
   schemas: [

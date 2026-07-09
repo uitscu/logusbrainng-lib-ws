@@ -1,6 +1,6 @@
-import { FormGroup, FormControl, AbstractControl, ValidationErrors, ValidatorFn, FormArray } from "@angular/forms"
+import { FormGroup, FormControl, AbstractControl, ValidationErrors, ValidatorFn, FormArray } from "@angular/forms";
 import { PatternValidators } from "./pattern.validators";
-import { RegexConstants } from "../utils";
+import { RegexConstants } from "./regex.constants";
 
 export function inputParamKey(text: any): boolean {
   const pat = PatternValidators.pattern(text, RegexConstants.INPUT_KEY);

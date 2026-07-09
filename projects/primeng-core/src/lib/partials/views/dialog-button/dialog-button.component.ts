@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'dialog-button',
@@ -9,7 +9,7 @@ export class DialogButtonComponent {
 
   @Input() disabled: boolean = false;
   @Input() isLeft: boolean = true;
-  @Input() isEdit: boolean = false
+  @Input() isEdit: boolean = false;
   @Input() isPrivilege: boolean = true;
   @Output() onDone: EventEmitter<any> = new EventEmitter();
   @Output() onDismiss: EventEmitter<any> = new EventEmitter();

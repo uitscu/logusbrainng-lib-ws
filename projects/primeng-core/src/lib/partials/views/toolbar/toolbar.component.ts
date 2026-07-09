@@ -10,15 +10,15 @@ export class ToolbarComponent {
 
   items: MenuItem[] = [];
 
-  @Input() styleClass: string = 'mb-4'
-  @Input() routerLink: string | undefined
-  @Input() labelAdd: string = 'Ajouter'
-  @Input() labelEdit: string = 'Modifier'
-  @Input() labelCancel: string = 'Annuler'
-  @Input() labelSave: string = 'Enregistrer'
-  @Input() labelSaveOption: string = 'Enregistrer'
-  @Input() isEdit: boolean = false
-  @Input() disabled: boolean = false
+  @Input() styleClass: string = 'mb-4';
+  @Input() routerLink: string | undefined;
+  @Input() labelAdd: string = 'Ajouter';
+  @Input() labelEdit: string = 'Modifier';
+  @Input() labelCancel: string = 'Annuler';
+  @Input() labelSave: string = 'Enregistrer';
+  @Input() labelSaveOption: string = 'Enregistrer';
+  @Input() isEdit: boolean = false;
+  @Input() disabled: boolean = false;
 
   @Output() onAdd: EventEmitter<any> = new EventEmitter();
   @Output() onSave: EventEmitter<any> = new EventEmitter();
@@ -27,7 +27,8 @@ export class ToolbarComponent {
   @Output() onEdit: EventEmitter<any> = new EventEmitter();
   @Output() onRefresh: EventEmitter<any> = new EventEmitter();
   @Output() onImportExcel: EventEmitter<any> = new EventEmitter();
-  @Output() onExportExecl: EventEmitter<any> = new EventEmitter();
+  @Output() onExportExcel: EventEmitter<any> = new EventEmitter();
+  @Output() onExportExecl: EventEmitter<any> = this.onExportExcel;
   @Output() onMenuOption: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
@@ -65,7 +66,11 @@ export class ToolbarComponent {
   }
 
   exportExecl() {
-    this.onExportExecl.emit();
+    this.exportExcel();
+  }
+
+  exportExcel() {
+    this.onExportExcel.emit();
   }
 
   refresh() {

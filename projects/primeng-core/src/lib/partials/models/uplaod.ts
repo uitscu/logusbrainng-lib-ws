@@ -1,5 +1,1 @@
-
-export interface UploadFileEvent {
-  originalEvent?: Event;
-  files?: File[];
-}
+export * from './upload';
