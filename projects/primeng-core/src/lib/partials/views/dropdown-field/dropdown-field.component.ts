@@ -1,10 +1,12 @@
-import { Component, EventEmitter, Input, OnDestroy, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, Output, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { NgModel } from '@angular/forms';
 
 @Component({
-  selector: 'dropdown-field',
-  templateUrl: './dropdown-field.component.html',
-  styleUrls: ['./dropdown-field.component.scss']
+    selector: 'dropdown-field',
+    templateUrl: './dropdown-field.component.html',
+    styleUrls: ['./dropdown-field.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class DropdownFieldComponent implements OnDestroy {
 

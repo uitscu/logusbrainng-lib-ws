@@ -1,5 +1,5 @@
-<p-confirmDialog [style]="{width: '450px'}"
-    [key]="confirmDialogKey"></p-confirmDialog>
+<p-confirmdialog [style]="{width: '450px'}"
+    [key]="confirmDialogKey"></p-confirmdialog>
 <ng-container *ngIf="isSingle; else setMultiple">
     <p-table #dt (onPage)="openPaginate($event)"
         (onRowSelect)="onRowSelected($event)"
@@ -11,68 +11,59 @@
         [showCurrentPageReport]="true" [value]="dataSource"
         currentPageReportTemplate="Affichage de {first} à {last} des {totalRecords} entrées"
         selectionMode="single"
-        styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm"
+        [stripedRows]="true" [showGridlines]="true" size="small"
         [ngClass]="styleClass">
-        <ng-template pTemplate="caption" *ngIf="isCaption">
+        <ng-template #caption *ngIf="isCaption">
             <div
                 class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
                 <h5 class="m-0">{{captionTitle}}</h5>
-                <span class="block mt-2 md:mt-0 p-input-icon-left">
-                    <i class="pi pi-search"></i>
-                    <input pInputText type="text" (input)="filterGlobal($event)"
-                        placeholder="Rechercher..." class="w-full sm:w-auto" />
-                </span>
+                <p-iconfield class="block mt-2 md:mt-0">
+                    <p-inputicon class="pi pi-search" />
+                    <input pInputText type="text" (input)="filterGlobal($event)" placeholder="Rechercher..." class="w-full sm:w-auto" />
+                </p-iconfield>
             </div>
         </ng-template>
-        <ng-template pTemplate="header">
+        <ng-template #header>
             <tr>
                 <th *ngIf="showTag" style="width:5%">#</th>
                 <ng-container *ngFor="let col of columns">
                     <ng-container *ngIf="hasStyle; else notHasStyle">
                         <th [style]="col.style" [pSortableColumn]="col.field">
-                            <p-sortIcon *ngIf="col.isSortable"
-                                [field]="col.field"></p-sortIcon>
+                            <p-sorticon *ngIf="col.isSortable"
+                                [field]="col.field"></p-sorticon>
                             {{col.header}}
                         </th>
                     </ng-container>
                     <ng-template #notHasStyle>
                         <th [pSortableColumn]="col.field">
-                            <p-sortIcon *ngIf="col.isSortable"
-                                [field]="col.field"></p-sortIcon>
+                            <p-sorticon *ngIf="col.isSortable"
+                                [field]="col.field"></p-sorticon>
                             {{col.header}}
                         </th>
                     </ng-template>
                 </ng-container>
             </tr>
         </ng-template>
-        <ng-template let-columns="columns" let-rowData pTemplate="body"
+        <ng-template let-columns="columns" let-rowData #body
             let-rowIndex="rowIndex">
             <tr [pSelectableRow]="rowData">
                 <td *ngIf="showTag">{{rowIndex + 1}}</td>
                 <td *ngFor="let col of columns">
                     <div *ngIf="!col.isAction">{{rowData[col.field]}}</div>
                     <div *ngIf="col.isAction">
-                        <button (click)="onEditRow(rowData)"
-                            *ngIf="onEdit.observers.length > 0"
-                            class="p-button-rounded p-button-info mr-2"
-                            icon="pi pi-pencil" pButton pRipple
-                            [disabled]="disabledEditButton"></button>
-                        <button (click)="onDeleteRow(rowData)"
-                            *ngIf="onDelete.observers.length>0"
-                            class="p-button-rounded p-button-danger"
-                            icon="pi pi-trash" pButton pRipple
-                            [disabled]="disabledDeleteButton"></button>
+                        <p-button (onClick)="onEditRow(rowData)" *ngIf="onEdit.observers.length > 0" [rounded]="true" severity="info" styleClass="mr-2" icon="pi pi-pencil" [disabled]="disabledEditButton"></p-button>
+                        <p-button (onClick)="onDeleteRow(rowData)" *ngIf="onDelete.observers.length>0" [rounded]="true" severity="danger" icon="pi pi-trash" [disabled]="disabledDeleteButton"></p-button>
                     </div>
                 </td>
             </tr>
         </ng-template>
-        <ng-template let-columns pTemplate="emptymessage">
+        <ng-template let-columns #emptymessage>
             <tr>
                 <td *ngIf="columns" [attr.colspan]="columns.length">Aucun
                     enregistrement trouvé</td>
             </tr>
         </ng-template>
-        <ng-template pTemplate="summary">
+        <ng-template #summary>
             <div *ngIf="dataSource" class="p-d-flex p-ai-center p-jc-between">
                 Au total il y a {{dataSource ? dataSource.length : 0 }}
                 {{summaryTitle | pluralword:dataSource }}.
@@ -92,81 +83,67 @@
             [showCurrentPageReport]="true"
             currentPageReportTemplate="Affichage de {first} à {last} des {totalRecords} entrées"
             selectionMode="multiple"
-            styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm"
+            [stripedRows]="true" [showGridlines]="true" size="small"
             [ngClass]="styleClass">
-            <ng-template pTemplate="caption" *ngIf="isCaption">
+            <ng-template #caption *ngIf="isCaption">
                 <div
                     class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
                     <h5 class="m-0">{{captionTitle}}</h5>
-                    <span class="block mt-2 md:mt-0 p-input-icon-left">
-                        <i class="pi pi-search"></i>
-                        <input pInputText type="text"
-                            (input)="filterGlobal($event)"
-                            placeholder="Rechercher..."
-                            class="w-full sm:w-auto" />
-                    </span>
+                    <p-iconfield class="block mt-2 md:mt-0">
+                    <p-inputicon class="pi pi-search" />
+                    <input pInputText type="text" (input)="filterGlobal($event)" placeholder="Rechercher..." class="w-full sm:w-auto" />
+                </p-iconfield>
                 </div>
             </ng-template>
-            <ng-template pTemplate="header">
+            <ng-template #header>
                 <tr>
                     <th style="width: 2.5rem">
-                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        <p-tableheadercheckbox></p-tableheadercheckbox>
                     </th>
                     <th *ngIf="showTag" style="width:5%">#</th>
                     <ng-container *ngFor="let col of columns">
                         <ng-container *ngIf="hasStyle; else notHasStyle">
                             <th [style]="col.style"
                                 [pSortableColumn]="col.field">
-                                <p-sortIcon *ngIf="col.isSortable"
-                                    [field]="col.field"></p-sortIcon>
+                                <p-sorticon *ngIf="col.isSortable"
+                                    [field]="col.field"></p-sorticon>
                                 {{col.header}}
                             </th>
                         </ng-container>
                         <ng-template #notHasStyle>
                             <th [pSortableColumn]="col.field">
-                                <p-sortIcon *ngIf="col.isSortable"
-                                    [field]="col.field"></p-sortIcon>
+                                <p-sorticon *ngIf="col.isSortable"
+                                    [field]="col.field"></p-sorticon>
                                 {{col.header}}
                             </th>
                         </ng-template>
                     </ng-container>
                 </tr>
             </ng-template>
-            <ng-template let-columns="columns" let-rowData pTemplate="body"
+            <ng-template let-columns="columns" let-rowData #body
                 let-rowIndex="rowIndex">
                 <tr [pSelectableRow]="rowData">
                     <td>
-                        <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+                        <p-tablecheckbox [value]="rowData"></p-tablecheckbox>
                     </td>
                     <td *ngIf="showTag">{{rowIndex + 1}}</td>
                     <td *ngFor="let col of columns">
                         <div *ngIf="!col.isAction">{{rowData[col.field]}}</div>
                         <div *ngIf="col.isAction">
-                            <button (click)="onEditRow(rowData)"
-                                *ngIf="onEdit.observers.length>0"
-                                class="p-button-rounded p-button-info mr-2"
-                                icon="pi pi-pencil" pButton pRipple
-                                [disabled]="disabledEditButton"></button>
-                            <button [routerLink]="routerLink" *ngIf="routerLink"
-                                [disabled]="disabledEditButton"
-                                class="p-button-rounded p-button-info mr-2"
-                                icon="pi pi-pencil" pButton pRipple></button>
-                            <button (click)="onDeleteRow(rowData)"
-                                *ngIf="onDelete.observers.length>0"
-                                [disabled]="disabledDeleteButton"
-                                class="p-button-rounded p-button-danger"
-                                icon="pi pi-trash" pButton pRipple></button>
+                            <p-button (onClick)="onEditRow(rowData)" *ngIf="onEdit.observers.length>0" [rounded]="true" severity="info" styleClass="mr-2" icon="pi pi-pencil" [disabled]="disabledEditButton"></p-button>
+                            <p-button [routerLink]="routerLink" *ngIf="routerLink" [disabled]="disabledEditButton" [rounded]="true" severity="info" styleClass="mr-2" icon="pi pi-pencil"></p-button>
+                            <p-button (onClick)="onDeleteRow(rowData)" *ngIf="onDelete.observers.length>0" [disabled]="disabledDeleteButton" [rounded]="true" severity="danger" icon="pi pi-trash"></p-button>
                         </div>
                     </td>
                 </tr>
             </ng-template>
-            <ng-template let-columns pTemplate="emptymessage">
+            <ng-template let-columns #emptymessage>
                 <tr>
                     <td *ngIf="columns" [attr.colspan]="columns.length">Aucun
                         enregistrement trouvé</td>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="summary">
+            <ng-template #summary>
                 <div *ngIf="dataSource"
                     class="p-d-flex p-ai-center p-jc-between">
                     Au total il y a {{dataSource ? dataSource.length : 0 }}
@@ -184,75 +161,63 @@
         [rowsPerPageOptions]="rowsPerPage" [rows]="rows"
         [showCurrentPageReport]="true" [value]="dataSource"
         currentPageReportTemplate="Affichage de {first} à {last} des {totalRecords} entrées"
-        styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm"
+        [stripedRows]="true" [showGridlines]="true" size="small"
         [ngClass]="styleClass">
-        <ng-template pTemplate="caption" *ngIf="isCaption">
+        <ng-template #caption *ngIf="isCaption">
             <div
                 class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
                 <h5 class="m-0">{{captionTitle}}</h5>
-                <span class="block mt-2 md:mt-0 p-input-icon-left">
-                    <i class="pi pi-search"></i>
-                    <input pInputText type="text" (input)="filterGlobal($event)"
-                        placeholder="Rechercher..." class="w-full sm:w-auto" />
-                </span>
+                <p-iconfield class="block mt-2 md:mt-0">
+                    <p-inputicon class="pi pi-search" />
+                    <input pInputText type="text" (input)="filterGlobal($event)" placeholder="Rechercher..." class="w-full sm:w-auto" />
+                </p-iconfield>
             </div>
         </ng-template>
-        <ng-template pTemplate="header">
+        <ng-template #header>
             <tr>
                 <th *ngIf="showTag" style="width:5%">#</th>
                 <ng-container *ngFor="let col of columns">
                     <ng-container *ngIf="hasStyle; else notHasStyle">
                         <th [style]="col.style" [pSortableColumn]="col.field">
-                            <p-sortIcon *ngIf="col.isSortable"
-                                [field]="col.field"></p-sortIcon>
+                            <p-sorticon *ngIf="col.isSortable"
+                                [field]="col.field"></p-sorticon>
                             {{col.header}}
                         </th>
                     </ng-container>
                     <ng-template #notHasStyle>
                         <th [pSortableColumn]="col.field">
-                            <p-sortIcon *ngIf="col.isSortable"
-                                [field]="col.field"></p-sortIcon>
+                            <p-sorticon *ngIf="col.isSortable"
+                                [field]="col.field"></p-sorticon>
                             {{col.header}}
                         </th>
                     </ng-template>
                 </ng-container>
             </tr>
         </ng-template>
-        <ng-template let-columns="columns" let-rowData pTemplate="body"
+        <ng-template let-columns="columns" let-rowData #body
             let-rowIndex="rowIndex">
             <tr [pSelectableRow]="rowData">
                 <td *ngIf="showTag">{{rowIndex + 1}}</td>
                 <td *ngFor="let col of columns">
                     <div *ngIf="!col.isAction">{{rowData[col.field]}}</div>
                     <div *ngIf="col.isAction">
-                        <button (click)="onEditRow(rowData)"
-                            *ngIf="onEdit.observers.length>0"
-                            [disabled]="disabledEditButton"
-                            class="p-button-rounded p-button-info mr-2"
-                            icon="pi pi-pencil" pButton pRipple></button>
-                        <button (click)="onDeleteRow(rowData)"
-                            *ngIf="onDelete.observers.length>0"
-                            [disabled]="disabledDeleteButton"
-                            class="p-button-rounded p-button-danger mr-2"
-                            icon="pi pi-trash" pButton pRipple></button>
+                        <p-button (onClick)="onEditRow(rowData)" *ngIf="onEdit.observers.length>0" [disabled]="disabledEditButton" [rounded]="true" severity="info" styleClass="mr-2" icon="pi pi-pencil"></p-button>
+                        <p-button (onClick)="onDeleteRow(rowData)" *ngIf="onDelete.observers.length>0" [disabled]="disabledDeleteButton" [rounded]="true" severity="danger" styleClass="mr-2" icon="pi pi-trash"></p-button>
                         <p-menu #menu [model]="menuDataItems" [popup]="true"
                             appendTo="body">
                         </p-menu>
-                        <button *ngIf="onMenuOption.observers.length> 0"
-                            (click)="onMenuOption.emit(rowData); menu.toggle($event)"
-                            class="p-button-rounded p-button-success mr-2"
-                            icon="pi pi-bars" pButton pRipple></button>
+                        <p-button *ngIf="onMenuOption.observers.length> 0" (onClick)="onMenuOption.emit(rowData); menu.toggle($event)" [rounded]="true" severity="success" styleClass="mr-2" icon="pi pi-bars"></p-button>
                     </div>
                 </td>
             </tr>
         </ng-template>
-        <ng-template let-columns pTemplate="emptymessage">
+        <ng-template let-columns #emptymessage>
             <tr>
                 <td *ngIf="columns" [attr.colspan]="columns.length">Aucun
                     enregistrement trouvé</td>
             </tr>
         </ng-template>
-        <ng-template pTemplate="summary">
+        <ng-template #summary>
             <div *ngIf="dataSource" class="p-d-flex p-ai-center p-jc-between">
                 Au total il y a {{dataSource ? dataSource.length : 0 }}
                 {{summaryTitle | pluralword:dataSource }}.

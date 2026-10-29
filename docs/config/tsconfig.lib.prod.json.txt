@@ -5,20 +5,19 @@
     "outDir": "../../out-tsc/lib",
     "declaration": true,
     "declarationMap": false,
-    "emitDecoratorMetadata": true,
     "inlineSources": true,
-    "types": [],
+    "types": []
   },
   "angularCompilerOptions": {
-    "compilationMode": "partial"
+    "compilationMode": "partial",
+    "extendedDiagnostics": {
+      "checks": {
+        "nullishCoalescingNotNullable": "suppress",
+        "optionalChainNotNullable": "suppress"
+      }
+    }
   },
-  "include": [
-    "src/**/*.ts"
-  ],
   "exclude": [
-    "**/*.spec.ts",
-    "**/*.test.ts",
-    "**/*.e2e-spec.ts",
-    "**/node_mo/dules/*"
+    "**/*.spec.ts"
   ]
 }

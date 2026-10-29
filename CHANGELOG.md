@@ -1,18 +1,46 @@
 # Changelog
 
-## Commit History
+All notable changes to `@logusbrain/primeng-core` and `@logusbrain/utils` are documented here.
 
-```bash
-# To generate the git log, run the following command in your terminal:
-git log --oneline
-```
+## 2.0.0 - 2026-10-29
 
-Below is the output of the `git log --oneline` command:
+Migration of the workspace from Angular 16 / PrimeNG 16 to Angular 22 / PrimeNG 22.
 
-```plaintext
-a1b2c3d Fix issue with user authentication
-d4e5f6a Add new feature for data export
-g7h8i9j Update documentation for API endpoints
-k0l1m2n Refactor code for better performance
-o3p4q5r Initial commit
-```
+### Breaking changes
+
+- **Peer dependencies**: Angular `^22.0.0`, PrimeNG `^22.0.0`, `@angular/cdk` 22, TypeScript 6.0, `zone.js ^0.15.0 || ^0.16.0` (Angular 22 applications ship zone.js 0.16 by default), `primeflex ^4.0.0`, `primeicons ^7.0.0 || ^8.0.0`. `@logusbrain/utils` requires Angular `^22.0.0`.
+- **Theme is provided by the application**. The library imports no theme. Call `providePrimeNG({ theme: { preset: Aura }, ripple: true })` with a preset from `@primeuix/themes` in your `app.config.ts` (see README). Ripple is off by default since PrimeNG 18.
+- **Renamed PrimeNG modules** exported by `PrimengCoreModule` (old names are no longer exported):
+
+  | Removed | Replacement |
+  |---|---|
+  | `DropdownModule` | `SelectModule` |
+  | `CalendarModule` | `DatePickerModule` |
+  | `InputSwitchModule` | `ToggleSwitchModule` |
+  | `InputTextareaModule` | `TextareaModule` |
+  | `SidebarModule` | `DrawerModule` |
+  | `OverlayPanelModule` | `PopoverModule` |
+  | `TabViewModule`, `TabMenuModule` | `TabsModule` |
+  | `StepsModule` | `StepperModule` |
+
+- **Removed PrimeNG modules** (no replacement in the library): `SlideMenuModule`, `ChipsModule`, `MessagesModule`, `VirtualScrollerModule`. Use `TieredMenuModule`, `AutoCompleteModule` (`multiple`), `MessageModule` and `ScrollerModule` from PrimeNG.
+- **FullCalendar 7**: `fullcalendar ^7.0.0` and `temporal-polyfill ^1.0.1` replace `@fullcalendar/core`, `@fullcalendar/daygrid`, `@fullcalendar/interaction` and `@fullcalendar/timegrid` as peer dependencies of `@fullcalendar/angular ^7.0.0`.
+- **`DropdownFieldComponent`** renders `<p-select>` instead of `<p-dropdown>`. The `autoDisplayFirst` input is kept for compatibility but has no effect (`p-select` has no such option).
+- **`ToolbarComponent`, `DialogButtonComponent`, `TableComponent`** render their buttons with the `<p-button>` component (`severity`, `raised`, `rounded`) instead of the `pButton` directive, whose `label` and `icon` inputs were removed in PrimeNG 22. The inner `<button class="p-button ...">` element keeps the `p-button-raised`, `p-button-rounded` and severity classes, except `p-button-warning` which PrimeNG 22 names `p-button-warn`; the `mr-2` spacing class moves from the host to that inner button. CSS targeting the host `button` element must target `p-button button` instead.
+- PrimeNG 22 components read `<ng-template #name>` references instead of `pTemplate="name"`; the library templates were updated accordingly. Applications using `pTemplate` with PrimeNG 22 components must do the same.
+
+### Changes
+
+- Build and test builders moved to `@angular/build:ng-packagr` and `@angular/build:karma`; `@angular-devkit/build-angular` removed.
+- TypeScript 6.0: `baseUrl` and `downlevelIteration` removed from `tsconfig.json`, `paths` are relative to the workspace root.
+- Peer dependencies now declare `@angular/forms`, `@angular/router`, `ngx-spinner ^22.0.0`, `ngx-extended-pdf-viewer ^31.0.0` and `crypto-js ^4.2.0`, which the module already imported.
+- `TableComponent` uses the `stripedRows`, `showGridlines` and `size="small"` inputs and an `IconField` search box (`styleClass` and `p-input-icon-left` no longer exist in PrimeNG 22); `IconFieldModule` and `InputIconModule` are exported. `ToolbarComponent` applies its `styleClass` input as a host class.
+- `CUSTOM_ELEMENTS_SCHEMA` removed from `PrimengCoreModule`: every element in the library templates is now checked by the compiler.
+- `@rxweb/reactive-form-validators ^13.0.1` is kept and verified against the Angular 22 linker.
+- Components keep `standalone: false` and `ChangeDetectionStrategy.Eager` (added by the Angular schematics) so their behaviour is unchanged.
+- `madge` removed from the workspace devDependencies (no release supports TypeScript 6, it blocked `npm install`, and no script used it).
+- Specs added for `DropdownFieldComponent`, `ToolbarComponent`, `DialogButtonComponent` and `TableComponent`.
+
+## 1.0.3
+
+Last release built with Angular 16.2 and PrimeNG 16.0.

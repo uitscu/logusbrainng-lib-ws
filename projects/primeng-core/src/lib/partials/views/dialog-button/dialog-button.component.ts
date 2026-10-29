@@ -1,9 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'dialog-button',
-  templateUrl: './dialog-button.component.html',
-  styleUrls: ['./dialog-button.component.scss']
+    selector: 'dialog-button',
+    templateUrl: './dialog-button.component.html',
+    styleUrls: ['./dialog-button.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class DialogButtonComponent {
 
