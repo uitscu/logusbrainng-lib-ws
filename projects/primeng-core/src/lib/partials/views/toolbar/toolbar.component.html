@@ -1,40 +1,30 @@
 <p-toolbar [styleClass]="styleClass">
-  <ng-template pTemplate="left">
+  <ng-template #start>
     <div>
-      <button *ngIf="onCancel.observers.length > 0" pButton pRipple icon="pi pi-times" [label]="labelCancel"
-        (click)="cancel()" class="p-button-raised p-button-danger mr-2"></button>
+      <p-button *ngIf="onCancel.observers.length > 0" icon="pi pi-times" [label]="labelCancel" (onClick)="cancel()" [raised]="true" severity="danger" styleClass="mr-2"></p-button>
 
       <p-splitButton *ngIf="onMenuOption.observers.length > 0" [label]="labelSaveOption" icon="pi pi-save"
         (onClick)="saveOption()" [model]="items"></p-splitButton>
 
-      <button *ngIf="onAdd.observers.length > 0  && !isEdit" pButton pRipple [label]="labelAdd" icon="pi pi-plus-circle"
-        class="p-button-raised p-button-primary mr-2" (click)="add()" [disabled]="disabled"></button>
+      <p-button *ngIf="onAdd.observers.length > 0  && !isEdit" [label]="labelAdd" icon="pi pi-plus-circle" [raised]="true" severity="primary" styleClass="mr-2" (onClick)="add()" [disabled]="disabled"></p-button>
 
-      <button *ngIf="routerLink && !isEdit" pButton pRipple [label]="labelAdd" icon="pi pi-plus-circle"
-        class="p-button-raised p-button-primary mr-2" [routerLink]="routerLink" [disabled]="disabled"></button>
+      <p-button *ngIf="routerLink && !isEdit" [label]="labelAdd" icon="pi pi-plus-circle" [raised]="true" severity="primary" styleClass="mr-2" [routerLink]="routerLink" [disabled]="disabled"></p-button>
 
-      <button *ngIf="onEdit.observers.length > 0 && isEdit" pButton pRipple [label]="labelEdit" icon="pi pi-save"
-        [class]="onSave.observers.length > 0 ? 'p-button-raised p-button-primary mr-2':'p-button-raised p-button-success mr-2'"
-        (click)="edit()" [disabled]="disabled"></button>
+      <p-button *ngIf="onEdit.observers.length > 0 && isEdit" [label]="labelEdit" icon="pi pi-save" [raised]="true" [severity]="onSave.observers.length > 0 ? 'primary' : 'success'" styleClass="mr-2" (onClick)="edit()" [disabled]="disabled"></p-button>
 
-      <button *ngIf="onImportExcel.observers.length > 0" pButton pRipple label="Importer" icon="pi pi-file-excel"
-        class="p-button-raised p-button-success mr-2" (click)="importExcel()" [disabled]="disabled"></button>
+      <p-button *ngIf="onImportExcel.observers.length > 0" label="Importer" icon="pi pi-file-excel" [raised]="true" severity="success" styleClass="mr-2" (onClick)="importExcel()" [disabled]="disabled"></p-button>
 
-      <button *ngIf="onExportExcel.observers.length > 0" pButton pRipple label="Exporter" icon="pi pi-file-excel"
-        class="p-button-raised p-button-success mr-2" (click)="exportExcel()" [disabled]="disabled"></button>
+      <p-button *ngIf="onExportExcel.observers.length > 0" label="Exporter" icon="pi pi-file-excel" [raised]="true" severity="success" styleClass="mr-2" (onClick)="exportExcel()" [disabled]="disabled"></p-button>
 
-      <button *ngIf="onSave.observers.length > 0" pButton pRipple [label]="labelSave" icon="pi pi-save"
-        class="p-button-raised p-button-success mr-2" (click)="save()" [disabled]="disabled"></button>
+      <p-button *ngIf="onSave.observers.length > 0" [label]="labelSave" icon="pi pi-save" [raised]="true" severity="success" styleClass="mr-2" (onClick)="save()" [disabled]="disabled"></p-button>
 
-      <button *ngIf="onPrint.observers.length > 0" pButton pRipple label="Imprimer" icon="pi pi-print"
-        class="p-button-raised p-button-warning mr-2" (click)="print()"></button>
+      <p-button *ngIf="onPrint.observers.length > 0" label="Imprimer" icon="pi pi-print" [raised]="true" severity="warn" styleClass="mr-2" (onClick)="print()"></p-button>
 
-      <button *ngIf="onRefresh.observers.length > 0" pButton pRipple label="Actualiser" icon="pi pi-refresh"
-        class="p-button-raised p-button-help mr-2" (click)="refresh()"></button>
+      <p-button *ngIf="onRefresh.observers.length > 0" label="Actualiser" icon="pi pi-refresh" [raised]="true" severity="help" styleClass="mr-2" (onClick)="refresh()"></p-button>
     </div>
   </ng-template>
 
-  <!-- <ng-template  pTemplate="right">
+  <!-- <ng-template  #end>
         <button *ngIf="onAdd.observers.length > 0" pButton pRipple label="Ajouter" icon="pi pi-plus-circle"
             class="p-button-primary mr-2" (click)="add()"></button>
 

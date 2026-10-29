@@ -15,7 +15,7 @@
                 (onClear)="clear($event)" class="w-full">
             </p-select>
             <small
-                *ngIf="dropdownModel?.invalid && (dropdownModel.dirty || dropdownModel.touched) && dropdownModel?.errors?.['required']??false"
+                *ngIf="(dropdownModel?.invalid && (dropdownModel.dirty || dropdownModel.touched) && dropdownModel?.errors?.['required']) ?? false"
                 class="ng-dirty ng-invalid">Champ obligatoire.
             </small>
         </div>

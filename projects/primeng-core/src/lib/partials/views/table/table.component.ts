@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { MenuItem, ConfirmationService } from 'primeng/api';
 import { Table } from 'primeng/table';
 import { TableColumn } from '../../models/table-column';
@@ -10,6 +10,7 @@ import { Status } from '../../../common/enums/status';
     templateUrl: './table.component.html',
     styleUrls: ['./table.component.scss'],
     providers: [PluralwordPipe],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class TableComponent implements OnInit, AfterViewInit {
