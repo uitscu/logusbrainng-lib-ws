@@ -1,10 +1,10 @@
-<p-toolbar [styleClass]="styleClass">
+<p-toolbar [class]="styleClass">
   <ng-template #start>
     <div>
       <p-button *ngIf="onCancel.observers.length > 0" icon="pi pi-times" [label]="labelCancel" (onClick)="cancel()" [raised]="true" severity="danger" styleClass="mr-2"></p-button>
 
-      <p-splitButton *ngIf="onMenuOption.observers.length > 0" [label]="labelSaveOption" icon="pi pi-save"
-        (onClick)="saveOption()" [model]="items"></p-splitButton>
+      <p-splitbutton *ngIf="onMenuOption.observers.length > 0" [label]="labelSaveOption" icon="pi pi-save"
+        (onClick)="saveOption()" [model]="items"></p-splitbutton>
 
       <p-button *ngIf="onAdd.observers.length > 0  && !isEdit" [label]="labelAdd" icon="pi pi-plus-circle" [raised]="true" severity="primary" styleClass="mr-2" (onClick)="add()" [disabled]="disabled"></p-button>
 

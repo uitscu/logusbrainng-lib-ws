@@ -28,6 +28,8 @@
   "peerDependencies": {
     "@angular/common": "^22.0.0",
     "@angular/core": "^22.0.0",
+    "@angular/forms": "^22.0.0",
+    "@angular/router": "^22.0.0",
     "@auth0/angular-jwt": "^5.2.0",
     "@fullcalendar/angular": "^7.0.0",
     "@rxweb/reactive-form-validators": "^13.0.1",
@@ -49,7 +51,6 @@
   "devDependencies": {
     "@types/crypto-js": "^4.2.2"
   },
-  "types": "./index.d.ts",
   "module": "./fesm2022/logusbrain-primeng-core.mjs",
   "main": "./fesm2022/logusbrain-primeng-core.mjs",
   "es2022": "./fesm2022/logusbrain-primeng-core.mjs",

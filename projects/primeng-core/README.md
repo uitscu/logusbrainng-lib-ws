@@ -1,79 +1,126 @@
 # @logusbrain/primeng-core
 
-**@logusbrain/primeng-core** is an Angular library developed by **LogusBrain**. It is built on [PrimeNG v16](https://www.primefaces.org/primeng/) and provides reusable, consistent, and customized components for building robust and performant enterprise applications. This library facilitates the integration of PrimeNG components with enhancements tailored to your business needs.
+**@logusbrain/primeng-core** is an Angular library developed by **LogusBrain**, built on PrimeNG 22. It bundles a `PrimengCoreModule` that re-exports the PrimeNG component modules together with reusable components (toolbar, table, dialog buttons, form fields), pipes and services for enterprise Angular applications.
+
+Source and issues: https://github.com/uitscu/logusbrainng-lib-ws
+
+## 📋 Requirements
+
+| Requirement | Version |
+|---|---|
+| Angular | 22.x |
+| PrimeNG | 22.x |
+| Node.js | 22.22+, 24.15+ or 26+ (as required by the Angular 22 CLI) |
+| TypeScript | 6.0.x |
+
+`@logusbrain/primeng-core` 2.x is built with Ivy partial compilation and ships no theme: the consuming application chooses and provides its PrimeNG theme.
 
 ## 📦 Installation
 
-Before installing, ensure your project is using Angular and PrimeNG v16.
+Install the library and its peer dependencies:
 
 ```bash
-# If you encounter peer dependency issues:
-npm install @logusbrain/primeng-core --legacy-peer-deps
-# Else
-npm install @logusbrain/primeng-core
+npm install @logusbrain/primeng-core primeng@22 @angular/cdk@22 @primeuix/themes primeicons primeflex@4 @fullcalendar/angular@7 fullcalendar@7 temporal-polyfill ngx-spinner@22 ngx-extended-pdf-viewer@31 @rxweb/reactive-form-validators @auth0/angular-jwt chart.js crypto-js
 ```
 
-## 🛠️ Prerequisites
+### Theme and ripple (required)
 
-Angular: Version 16 or higher
+Since PrimeNG 18 the theme is configured in the application, not in CSS imports, and ripple is off by default. Without `providePrimeNG` the components compile but render unstyled. PrimeNG 22 no longer needs `@angular/animations`.
 
-PrimeNG: Version 16 (required for compatibility)
+`src/app/app.config.ts`:
 
-## 🔧 Usage
+```ts
+import { ApplicationConfig } from '@angular/core';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeuix/themes/aura';
 
-Once installed, you can import the @logusbrain/primeng-core modules into your Angular module to start using the components:
+export const appConfig: ApplicationConfig = {
+  providers: [
+    providePrimeNG({ theme: { preset: Aura }, ripple: true }),
+  ],
+};
+```
 
- ```bash
+`src/styles.css`:
+
+```css
+@import "primeicons/primeicons.css";
+@import "primeflex/primeflex.css";
+```
+
+### Bundle size and CommonJS warning
+
+`PrimengCoreModule` re-exports the whole PrimeNG component set plus FullCalendar, ngx-spinner and ngx-extended-pdf-viewer. An application importing it has an initial bundle of about 3.4 MB (uncompressed) and must raise the default `initial` budget in its `angular.json`. The library uses `crypto-js`, which is a CommonJS package; add it to `allowedCommonJsDependencies` in the application's build options to silence the optimization warning:
+
+```json
+"allowedCommonJsDependencies": ["crypto-js"]
+```
+
+## 🧰 Usage
+
+In an `NgModule`-based application:
+
+```ts
+import { PrimengCoreModule } from '@logusbrain/primeng-core';
+import { UtilsModule } from '@logusbrain/utils';
+
+@NgModule({
+  imports: [
+    PrimengCoreModule,
+    UtilsModule
+  ]
+})
+export class AppModule {}
+```
+
+In a standalone component:
+
+```ts
+import { Component } from '@angular/core';
 import { PrimengCoreModule } from '@logusbrain/primeng-core';
 
-@NgModule({  
-  // Imports other modules required for this module to function
-  imports: [
-    PrimengCoreModule, // Custom module that bundles PrimeNG components used in the app
-  ],
-
-  providers: [
-    // Required: Injection tokens necessary for configuring the app per environment
-    { provide: API_ENDPOINT, useValue: <environment.apiUrl> }, // Base URL of the backend API
-    { provide: CLIENT_ID, useValue: <environment.clientId> }, // OAuth client ID
-    { provide: CLIENT_KEY, useValue: <environment.clientKey> }, // OAuth client secret or key
-    { provide: LOGUSBRAIN_ID, useValue: <environment.lbId> }, // ID for external service LogusBrain
-    { provide: LOGUSBRAIN_KEY, useValue: <environment.lbKey> }, // Key for LogusBrain service
-  ],
+@Component({
+  selector: 'app-root',
+  imports: [PrimengCoreModule],
+  template: `<llb-toolbar (onSave)="save()"></llb-toolbar>`
 })
-export class AppModule { }
+export class AppComponent {
+  save() {}
+}
 ```
 
-Please refer to the specific component documentation for more details on configurations and available options.
+### PrimeNG modules exported by `PrimengCoreModule`
 
-## 📚 Documentation
+Version 2.0.0 follows the PrimeNG 18+ component names. Renamed modules:
 
-The full documentation for components and their APIs is available in the docs/ folder of this repository. (Unavailable now)
+| Removed (1.x) | Use instead (2.x) |
+|---|---|
+| `DropdownModule` (`p-dropdown`) | `SelectModule` (`p-select`) |
+| `CalendarModule` (`p-calendar`) | `DatePickerModule` (`p-datepicker`) |
+| `InputSwitchModule` (`p-inputSwitch`) | `ToggleSwitchModule` (`p-toggleswitch`) |
+| `InputTextareaModule` (`pInputTextarea`) | `TextareaModule` (`pTextarea`) |
+| `SidebarModule` (`p-sidebar`) | `DrawerModule` (`p-drawer`) |
+| `OverlayPanelModule` (`p-overlayPanel`) | `PopoverModule` (`p-popover`) |
+| `TabViewModule`, `TabMenuModule` | `TabsModule` (`p-tabs`) |
+| `StepsModule` (`p-steps`) | `StepperModule` (`p-stepper`) |
 
-## 🔄 Versions
+No longer exported (import the PrimeNG equivalent in your application if needed): `SlideMenuModule` (use `TieredMenuModule`), `ChipsModule` (use `AutoCompleteModule` with `multiple`), `MessagesModule` (use `MessageModule`), `VirtualScrollerModule` (use `ScrollerModule`).
 
- ```text
-Version | Description
--------------------------------------------------------------
-1.0.3   | PrimeNG v16 compatible, first components available.
+## 🧪 Run Tests
+
+```bash
+CHROME_BIN=/usr/bin/google-chrome npx ng test primeng-core --watch=false --browsers=ChromeHeadless
+CHROME_BIN=/usr/bin/google-chrome npx ng test utils --watch=false --browsers=ChromeHeadless
 ```
 
-npm deprecate @logusbrain/primeng-core@1.0.2 "This version is deprecated. Use version 1.0.3 or higher."
+## 🏗️ Build
 
-## 🔹 Key points
+```bash
+npm run build:prod
+```
 
-Clear update on PrimeNG version (v16) to avoid confusion.
+Outputs `dist/primeng-core` and `dist/utils`, ready for `npm publish`.
 
-Well-defined structure for easy installation, usage, and contribution.
+## 📄 License
 
-Prerequisites and Versions sections for clarity.
-
-## 🛠 Key Features
-
-* 📁 Customized partial components
-
-* 🔒 Integrated security services
-
-* 🔧 Common utility services
-
-* 📦 Modular architecture
+MIT

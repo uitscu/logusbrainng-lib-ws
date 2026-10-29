@@ -1,5 +1,5 @@
-<p-confirmDialog [style]="{width: '450px'}"
-    [key]="confirmDialogKey"></p-confirmDialog>
+<p-confirmdialog [style]="{width: '450px'}"
+    [key]="confirmDialogKey"></p-confirmdialog>
 <ng-container *ngIf="isSingle; else setMultiple">
     <p-table #dt (onPage)="openPaginate($event)"
         (onRowSelect)="onRowSelected($event)"
@@ -11,17 +11,16 @@
         [showCurrentPageReport]="true" [value]="dataSource"
         currentPageReportTemplate="Affichage de {first} à {last} des {totalRecords} entrées"
         selectionMode="single"
-        styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm"
+        [stripedRows]="true" [showGridlines]="true" size="small"
         [ngClass]="styleClass">
         <ng-template #caption *ngIf="isCaption">
             <div
                 class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
                 <h5 class="m-0">{{captionTitle}}</h5>
-                <span class="block mt-2 md:mt-0 p-input-icon-left">
-                    <i class="pi pi-search"></i>
-                    <input pInputText type="text" (input)="filterGlobal($event)"
-                        placeholder="Rechercher..." class="w-full sm:w-auto" />
-                </span>
+                <p-iconfield class="block mt-2 md:mt-0">
+                    <p-inputicon class="pi pi-search" />
+                    <input pInputText type="text" (input)="filterGlobal($event)" placeholder="Rechercher..." class="w-full sm:w-auto" />
+                </p-iconfield>
             </div>
         </ng-template>
         <ng-template #header>
@@ -30,15 +29,15 @@
                 <ng-container *ngFor="let col of columns">
                     <ng-container *ngIf="hasStyle; else notHasStyle">
                         <th [style]="col.style" [pSortableColumn]="col.field">
-                            <p-sortIcon *ngIf="col.isSortable"
-                                [field]="col.field"></p-sortIcon>
+                            <p-sorticon *ngIf="col.isSortable"
+                                [field]="col.field"></p-sorticon>
                             {{col.header}}
                         </th>
                     </ng-container>
                     <ng-template #notHasStyle>
                         <th [pSortableColumn]="col.field">
-                            <p-sortIcon *ngIf="col.isSortable"
-                                [field]="col.field"></p-sortIcon>
+                            <p-sorticon *ngIf="col.isSortable"
+                                [field]="col.field"></p-sorticon>
                             {{col.header}}
                         </th>
                     </ng-template>
@@ -84,40 +83,37 @@
             [showCurrentPageReport]="true"
             currentPageReportTemplate="Affichage de {first} à {last} des {totalRecords} entrées"
             selectionMode="multiple"
-            styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm"
+            [stripedRows]="true" [showGridlines]="true" size="small"
             [ngClass]="styleClass">
             <ng-template #caption *ngIf="isCaption">
                 <div
                     class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
                     <h5 class="m-0">{{captionTitle}}</h5>
-                    <span class="block mt-2 md:mt-0 p-input-icon-left">
-                        <i class="pi pi-search"></i>
-                        <input pInputText type="text"
-                            (input)="filterGlobal($event)"
-                            placeholder="Rechercher..."
-                            class="w-full sm:w-auto" />
-                    </span>
+                    <p-iconfield class="block mt-2 md:mt-0">
+                    <p-inputicon class="pi pi-search" />
+                    <input pInputText type="text" (input)="filterGlobal($event)" placeholder="Rechercher..." class="w-full sm:w-auto" />
+                </p-iconfield>
                 </div>
             </ng-template>
             <ng-template #header>
                 <tr>
                     <th style="width: 2.5rem">
-                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        <p-tableheadercheckbox></p-tableheadercheckbox>
                     </th>
                     <th *ngIf="showTag" style="width:5%">#</th>
                     <ng-container *ngFor="let col of columns">
                         <ng-container *ngIf="hasStyle; else notHasStyle">
                             <th [style]="col.style"
                                 [pSortableColumn]="col.field">
-                                <p-sortIcon *ngIf="col.isSortable"
-                                    [field]="col.field"></p-sortIcon>
+                                <p-sorticon *ngIf="col.isSortable"
+                                    [field]="col.field"></p-sorticon>
                                 {{col.header}}
                             </th>
                         </ng-container>
                         <ng-template #notHasStyle>
                             <th [pSortableColumn]="col.field">
-                                <p-sortIcon *ngIf="col.isSortable"
-                                    [field]="col.field"></p-sortIcon>
+                                <p-sorticon *ngIf="col.isSortable"
+                                    [field]="col.field"></p-sorticon>
                                 {{col.header}}
                             </th>
                         </ng-template>
@@ -128,7 +124,7 @@
                 let-rowIndex="rowIndex">
                 <tr [pSelectableRow]="rowData">
                     <td>
-                        <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+                        <p-tablecheckbox [value]="rowData"></p-tablecheckbox>
                     </td>
                     <td *ngIf="showTag">{{rowIndex + 1}}</td>
                     <td *ngFor="let col of columns">
@@ -165,17 +161,16 @@
         [rowsPerPageOptions]="rowsPerPage" [rows]="rows"
         [showCurrentPageReport]="true" [value]="dataSource"
         currentPageReportTemplate="Affichage de {first} à {last} des {totalRecords} entrées"
-        styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm"
+        [stripedRows]="true" [showGridlines]="true" size="small"
         [ngClass]="styleClass">
         <ng-template #caption *ngIf="isCaption">
             <div
                 class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
                 <h5 class="m-0">{{captionTitle}}</h5>
-                <span class="block mt-2 md:mt-0 p-input-icon-left">
-                    <i class="pi pi-search"></i>
-                    <input pInputText type="text" (input)="filterGlobal($event)"
-                        placeholder="Rechercher..." class="w-full sm:w-auto" />
-                </span>
+                <p-iconfield class="block mt-2 md:mt-0">
+                    <p-inputicon class="pi pi-search" />
+                    <input pInputText type="text" (input)="filterGlobal($event)" placeholder="Rechercher..." class="w-full sm:w-auto" />
+                </p-iconfield>
             </div>
         </ng-template>
         <ng-template #header>
@@ -184,15 +179,15 @@
                 <ng-container *ngFor="let col of columns">
                     <ng-container *ngIf="hasStyle; else notHasStyle">
                         <th [style]="col.style" [pSortableColumn]="col.field">
-                            <p-sortIcon *ngIf="col.isSortable"
-                                [field]="col.field"></p-sortIcon>
+                            <p-sorticon *ngIf="col.isSortable"
+                                [field]="col.field"></p-sorticon>
                             {{col.header}}
                         </th>
                     </ng-container>
                     <ng-template #notHasStyle>
                         <th [pSortableColumn]="col.field">
-                            <p-sortIcon *ngIf="col.isSortable"
-                                [field]="col.field"></p-sortIcon>
+                            <p-sorticon *ngIf="col.isSortable"
+                                [field]="col.field"></p-sorticon>
                             {{col.header}}
                         </th>
                     </ng-template>

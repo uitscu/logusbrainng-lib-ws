@@ -26,14 +26,16 @@ Migration of the workspace from Angular 16 / PrimeNG 16 to Angular 22 / PrimeNG 
 - **Removed PrimeNG modules** (no replacement in the library): `SlideMenuModule`, `ChipsModule`, `MessagesModule`, `VirtualScrollerModule`. Use `TieredMenuModule`, `AutoCompleteModule` (`multiple`), `MessageModule` and `ScrollerModule` from PrimeNG.
 - **FullCalendar 7**: `fullcalendar ^7.0.0` and `temporal-polyfill ^1.0.1` replace `@fullcalendar/core`, `@fullcalendar/daygrid`, `@fullcalendar/interaction` and `@fullcalendar/timegrid` as peer dependencies of `@fullcalendar/angular ^7.0.0`.
 - **`DropdownFieldComponent`** renders `<p-select>` instead of `<p-dropdown>`. The `autoDisplayFirst` input is kept for compatibility but has no effect (`p-select` has no such option).
-- **`ToolbarComponent`, `DialogButtonComponent`, `TableComponent`** render their buttons with the `<p-button>` component (`severity`, `raised`, `rounded`) instead of the `pButton` directive, whose `label` and `icon` inputs were removed in PrimeNG 22. The inner `<button class="p-button ...">` element is unchanged; CSS targeting the host `button` element must target `p-button button` instead.
+- **`ToolbarComponent`, `DialogButtonComponent`, `TableComponent`** render their buttons with the `<p-button>` component (`severity`, `raised`, `rounded`) instead of the `pButton` directive, whose `label` and `icon` inputs were removed in PrimeNG 22. The inner `<button class="p-button ...">` element keeps the `p-button-raised`, `p-button-rounded` and severity classes, except `p-button-warning` which PrimeNG 22 names `p-button-warn`; the `mr-2` spacing class moves from the host to that inner button. CSS targeting the host `button` element must target `p-button button` instead.
 - PrimeNG 22 components read `<ng-template #name>` references instead of `pTemplate="name"`; the library templates were updated accordingly. Applications using `pTemplate` with PrimeNG 22 components must do the same.
 
 ### Changes
 
 - Build and test builders moved to `@angular/build:ng-packagr` and `@angular/build:karma`; `@angular-devkit/build-angular` removed.
 - TypeScript 6.0: `baseUrl` and `downlevelIteration` removed from `tsconfig.json`, `paths` are relative to the workspace root.
-- Peer dependencies now declare `ngx-spinner ^22.0.0`, `ngx-extended-pdf-viewer ^31.0.0` and `crypto-js ^4.2.0`, which the module already imported.
+- Peer dependencies now declare `@angular/forms`, `@angular/router`, `ngx-spinner ^22.0.0`, `ngx-extended-pdf-viewer ^31.0.0` and `crypto-js ^4.2.0`, which the module already imported.
+- `TableComponent` uses the `stripedRows`, `showGridlines` and `size="small"` inputs and an `IconField` search box (`styleClass` and `p-input-icon-left` no longer exist in PrimeNG 22); `IconFieldModule` and `InputIconModule` are exported. `ToolbarComponent` applies its `styleClass` input as a host class.
+- `CUSTOM_ELEMENTS_SCHEMA` removed from `PrimengCoreModule`: every element in the library templates is now checked by the compiler.
 - `@rxweb/reactive-form-validators ^13.0.1` is kept and verified against the Angular 22 linker.
 - Components keep `standalone: false` and `ChangeDetectionStrategy.Eager` (added by the Angular schematics) so their behaviour is unchanged.
 - `madge` removed from the workspace devDependencies (no release supports TypeScript 6, it blocked `npm install`, and no script used it).

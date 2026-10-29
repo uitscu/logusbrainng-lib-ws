@@ -39,7 +39,7 @@ logusbrainng-lib-ws/
 |---|---|
 | Angular | 22.x |
 | PrimeNG | 22.x |
-| Node.js | 20.19+, 22.12+ or 24.x |
+| Node.js | 22.22+, 24.15+ or 26+ (as required by the Angular 22 CLI) |
 | TypeScript | 6.0.x |
 
 `@logusbrain/primeng-core` 2.x is built with Ivy partial compilation and ships no theme: the consuming application chooses and provides its PrimeNG theme.
@@ -49,7 +49,7 @@ logusbrainng-lib-ws/
 Install the library and its peer dependencies:
 
 ```bash
-npm install @logusbrain/primeng-core primeng@22 @primeuix/themes primeicons primeflex@4 @fullcalendar/angular@7 fullcalendar@7 temporal-polyfill ngx-spinner@22 ngx-extended-pdf-viewer@31 @rxweb/reactive-form-validators @auth0/angular-jwt chart.js crypto-js
+npm install @logusbrain/primeng-core primeng@22 @angular/cdk@22 @primeuix/themes primeicons primeflex@4 @fullcalendar/angular@7 fullcalendar@7 temporal-polyfill ngx-spinner@22 ngx-extended-pdf-viewer@31 @rxweb/reactive-form-validators @auth0/angular-jwt chart.js crypto-js
 ```
 
 ### Theme and ripple (required)

@@ -1,6 +1,6 @@
 // === Angular Core & Common ===
 import { CommonModule, DatePipe } from "@angular/common";
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
+import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 
@@ -60,7 +60,9 @@ import { DrawerModule } from 'primeng/drawer';
 import { FieldsetModule } from 'primeng/fieldset';
 import { FileUploadModule } from 'primeng/fileupload';
 import { GalleriaModule } from 'primeng/galleria';
+import { IconFieldModule } from 'primeng/iconfield';
 import { ImageModule } from 'primeng/image';
+import { InputIconModule } from 'primeng/inputicon';
 import { InplaceModule } from 'primeng/inplace';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputNumberModule } from "primeng/inputnumber";
@@ -152,7 +154,9 @@ import { TreeTableModule } from 'primeng/treetable';
     FileUploadModule,
     FullCalendarModule,
     GalleriaModule,
+    IconFieldModule,
     ImageModule,
+    InputIconModule,
     InplaceModule,
     InputMaskModule,
     InputNumberModule,
@@ -248,7 +252,9 @@ import { TreeTableModule } from 'primeng/treetable';
     FileUploadModule,
     FullCalendarModule,
     GalleriaModule,
+    IconFieldModule,
     ImageModule,
+    InputIconModule,
     InplaceModule,
     InputMaskModule,
     InputNumberModule,
@@ -304,9 +310,6 @@ import { TreeTableModule } from 'primeng/treetable';
     ReactiveFormsModule,
     RouterModule,
     RxReactiveFormsModule,
-  ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [
     BreadcrumbService,
