@@ -2,9 +2,10 @@ import { Component, EventEmitter, Input, OnDestroy, Output, ViewChild } from '@a
 import { NgModel } from '@angular/forms';
 
 @Component({
-  selector: 'dropdown-field',
-  templateUrl: './dropdown-field.component.html',
-  styleUrls: ['./dropdown-field.component.scss']
+    selector: 'dropdown-field',
+    templateUrl: './dropdown-field.component.html',
+    styleUrls: ['./dropdown-field.component.scss'],
+    standalone: false
 })
 export class DropdownFieldComponent implements OnDestroy {
 

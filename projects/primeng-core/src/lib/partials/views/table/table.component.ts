@@ -6,10 +6,11 @@ import { PluralwordPipe } from '../../../common/pipes';
 import { Status } from '../../../common/enums/status';
 
 @Component({
-  selector: 'llb-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss'],
-  providers: [PluralwordPipe]
+    selector: 'llb-table',
+    templateUrl: './table.component.html',
+    styleUrls: ['./table.component.scss'],
+    providers: [PluralwordPipe],
+    standalone: false
 })
 export class TableComponent implements OnInit, AfterViewInit {
 

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'llb-inputh',
-  templateUrl: './inputh.component.html',
-  styleUrls: ['./inputh.component.scss']
+    selector: 'llb-inputh',
+    templateUrl: './inputh.component.html',
+    styleUrls: ['./inputh.component.scss'],
+    standalone: false
 })
 export class InputhComponent {
 
