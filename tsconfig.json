@@ -18,10 +18,6 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
     "paths": {
       "@logusbrain/primeng-core": [
         "projects/primeng-core/src/public-api.ts"
