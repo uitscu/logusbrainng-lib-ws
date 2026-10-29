@@ -54,19 +54,17 @@ npm install @logusbrain/primeng-core primeng@22 @primeuix/themes primeicons prim
 
 ### Theme and ripple (required)
 
-Since PrimeNG 18 the theme is configured in the application, not in CSS imports, and ripple is off by default. Without `providePrimeNG` the components compile but render unstyled.
+Since PrimeNG 18 the theme is configured in the application, not in CSS imports, and ripple is off by default. Without `providePrimeNG` the components compile but render unstyled. PrimeNG 22 no longer needs `@angular/animations`.
 
 `src/app/app.config.ts`:
 
 ```ts
 import { ApplicationConfig } from '@angular/core';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideAnimationsAsync(),
     providePrimeNG({ theme: { preset: Aura }, ripple: true }),
   ],
 };
@@ -77,6 +75,14 @@ export const appConfig: ApplicationConfig = {
 ```css
 @import "primeicons/primeicons.css";
 @import "primeflex/primeflex.css";
+```
+
+### Bundle size and CommonJS warning
+
+`PrimengCoreModule` re-exports the whole PrimeNG component set plus FullCalendar, ngx-spinner and ngx-extended-pdf-viewer. An application importing it has an initial bundle of about 3.4 MB (uncompressed) and must raise the default `initial` budget in its `angular.json`. The library uses `crypto-js`, which is a CommonJS package; add it to `allowedCommonJsDependencies` in the application's build options to silence the optimization warning:
+
+```json
+"allowedCommonJsDependencies": ["crypto-js"]
 ```
 
 ## 🧰 Usage

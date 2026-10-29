@@ -8,7 +8,7 @@ Migration of the workspace from Angular 16 / PrimeNG 16 to Angular 22 / PrimeNG 
 
 ### Breaking changes
 
-- **Peer dependencies**: Angular `^22.0.0`, PrimeNG `^22.0.0`, `@angular/cdk` 22, TypeScript 6.0, `zone.js ^0.15.0`, `primeflex ^4.0.0`, `primeicons ^7.0.0 || ^8.0.0`. `@logusbrain/utils` requires Angular `^22.0.0`.
+- **Peer dependencies**: Angular `^22.0.0`, PrimeNG `^22.0.0`, `@angular/cdk` 22, TypeScript 6.0, `zone.js ^0.15.0 || ^0.16.0` (Angular 22 applications ship zone.js 0.16 by default), `primeflex ^4.0.0`, `primeicons ^7.0.0 || ^8.0.0`. `@logusbrain/utils` requires Angular `^22.0.0`.
 - **Theme is provided by the application**. The library imports no theme. Call `providePrimeNG({ theme: { preset: Aura }, ripple: true })` with a preset from `@primeuix/themes` in your `app.config.ts` (see README). Ripple is off by default since PrimeNG 18.
 - **Renamed PrimeNG modules** exported by `PrimengCoreModule` (old names are no longer exported):
 
